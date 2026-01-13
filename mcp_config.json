@@ -1,0 +1,81 @@
+{
+  "mcp_version": "1.0.0",
+  "description": "Model Context Protocol configuration for Sovereign Forge agent connectivity",
+  "servers": {
+    "file_system_server": {
+      "enabled": true,
+      "description": "Local file system access for agents",
+      "root_path": "/home/ubuntu/agentic-empire",
+      "allowed_operations": ["read", "write", "list", "search"],
+      "security_level": "high"
+    },
+    "github_connector": {
+      "enabled": true,
+      "description": "GitHub API integration for repository operations",
+      "api_endpoint": "https://api.github.com",
+      "operations": ["commit", "push", "pull", "branch", "pr"],
+      "authentication": "github_token"
+    },
+    "database_connector": {
+      "enabled": false,
+      "description": "Database connectivity for production deployments",
+      "supported_databases": ["postgresql", "mysql", "duckdb"],
+      "connection_pool_size": 10
+    },
+    "external_tools": {
+      "enabled": true,
+      "description": "External tool registry for agent capabilities",
+      "tools": [
+        {
+          "name": "pydantic_validator",
+          "type": "validation",
+          "endpoint": "local"
+        },
+        {
+          "name": "code_formatter",
+          "type": "formatting",
+          "tools": ["black", "prettier", "eslint"]
+        },
+        {
+          "name": "test_runner",
+          "type": "testing",
+          "frameworks": ["pytest", "jest", "vitest"]
+        }
+      ]
+    }
+  },
+  "agent_permissions": {
+    "architectural_sovereign": {
+      "file_access": "read_write",
+      "github_access": "read",
+      "tool_access": ["pydantic_validator"]
+    },
+    "code_generation_maestro": {
+      "file_access": "read_write",
+      "github_access": "read_write",
+      "tool_access": ["code_formatter", "test_runner", "pydantic_validator"]
+    },
+    "security_sentinel": {
+      "file_access": "read",
+      "github_access": "read_write",
+      "tool_access": ["pydantic_validator"]
+    },
+    "devops_automator": {
+      "file_access": "read_write",
+      "github_access": "read_write",
+      "tool_access": ["all"]
+    },
+    "project_coordinator": {
+      "file_access": "read_write",
+      "github_access": "read_write",
+      "tool_access": ["all"]
+    }
+  },
+  "security": {
+    "secret_management": "pydantic_secretstr",
+    "api_key_storage": "environment_variables",
+    "encryption": "enabled",
+    "audit_logging": "enabled",
+    "audit_log_path": "audit-logs/"
+  }
+}

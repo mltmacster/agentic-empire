@@ -1,0 +1,30 @@
+{
+  "story_shards_version": "1.0.0",
+  "last_updated": "2026-01-13T00:00:00Z",
+  "active_shards": [
+    {
+      "shard_id": "SHARD-001-INIT",
+      "title": "Initialize Sovereign Forge Foundation",
+      "status": "in_progress",
+      "priority": "critical",
+      "owner_agent": "Project Coordinator",
+      "contributing_agents": [
+        "Architectural Sovereign",
+        "Security Sentinel"
+      ],
+      "created_at": "2026-01-13T00:00:00Z",
+      "target_completion": "2026-01-27T00:00:00Z",
+      "story_file": "story-files/SHARD-001-INIT.md",
+      "dependencies": [],
+      "tags": ["foundation", "phase-1", "infrastructure"]
+    }
+  ],
+  "completed_shards": [],
+  "archived_shards": [],
+  "metrics": {
+    "total_active": 1,
+    "total_completed": 0,
+    "average_completion_time_days": 0,
+    "success_rate": 0
+  }
+}

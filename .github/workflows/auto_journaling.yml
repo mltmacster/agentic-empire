@@ -1,0 +1,112 @@
+name: Auto-Journaling System
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'artifacts/**'
+      - 'library/**'
+      - '**.py'
+      - '**.js'
+      - '**.ts'
+
+jobs:
+  create-journal-entry:
+    name: Create Automated Journal Entry
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Get the last 2 commits to compare
+      
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pydantic python-dateutil
+      
+      - name: Extract Commit Information
+        id: commit_info
+        run: |
+          echo "commit_hash=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+          echo "commit_message=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
+          echo "author=$(git log -1 --pretty=%an)" >> $GITHUB_OUTPUT
+          echo "timestamp=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> $GITHUB_OUTPUT
+      
+      - name: Identify Changed Files
+        id: changed_files
+        run: |
+          echo "files_changed<<EOF" >> $GITHUB_OUTPUT
+          git diff --name-only HEAD~1 HEAD >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+      
+      - name: Generate Journal Entry
+        run: |
+          JOURNAL_DATE=$(date +%Y-%m-%d)
+          JOURNAL_FILE="journal/${JOURNAL_DATE}-auto-journal.md"
+          
+          mkdir -p journal
+          
+          cat > "$JOURNAL_FILE" << 'EOF'
+          ---
+          task_id: "AUTO-${{ steps.commit_info.outputs.commit_hash }}"
+          status: "completed"
+          owner_agent: "DevOps Automator"
+          contributing_agents: []
+          last_sync: "${{ steps.commit_info.outputs.timestamp }}"
+          parent_context_id: "git-commit-${{ steps.commit_info.outputs.commit_hash }}"
+          ---
+          
+          # Automated Journal Entry
+          
+          ## Commit Information
+          
+          - **Commit Hash:** `${{ steps.commit_info.outputs.commit_hash }}`
+          - **Author:** ${{ steps.commit_info.outputs.author }}
+          - **Timestamp:** ${{ steps.commit_info.outputs.timestamp }}
+          - **Message:** ${{ steps.commit_info.outputs.commit_message }}
+          
+          ## Changes Detected
+          
+          The following files were modified in this commit:
+          
+          ```
+          ${{ steps.changed_files.outputs.files_changed }}
+          ```
+          
+          ## Summary of Progress
+          
+          This automated journal entry was created by the DevOps Automator to ensure "No Content is Left Behind." All changes have been tracked and are now part of the permanent record.
+          
+          ## Next Steps for Sub-Agents
+          
+          - [ ] Security Sentinel: Review changes for security implications
+          - [ ] Code Generation Maestro: Ensure code quality standards are met
+          - [ ] Project Coordinator: Update active story shards if applicable
+          
+          ---
+          
+          *Generated automatically by the Sovereign Forge Auto-Journaling System*
+          EOF
+          
+          echo "📝 Journal entry created: $JOURNAL_FILE"
+          cat "$JOURNAL_FILE"
+      
+      - name: Commit Journal Entry
+        run: |
+          git config --local user.email "devops-automator@sovereignforge.ai"
+          git config --local user.name "DevOps Automator"
+          git add journal/
+          git diff --staged --quiet || git commit -m "📝 Auto-journal: ${{ steps.commit_info.outputs.commit_message }}"
+      
+      - name: Push Changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}

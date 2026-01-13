@@ -1,0 +1,251 @@
+{
+  "manifest_version": "1.0.0",
+  "created_at": "2026-01-13T00:00:00Z",
+  "last_updated": "2026-01-13T00:00:00Z",
+  "platform": {
+    "name": "Sovereign Forge",
+    "subtitle": "The Agentic Empire Builder",
+    "philosophy": "BMAD - Breakthrough Method of Agile AI-Driven Development",
+    "core_principle": "No Content Left Behind",
+    "security_protocol": "Pydantic Validation with SecretStr",
+    "architecture": "Git-as-Memory with Swarm Intelligence"
+  },
+  "guru_agents": [
+    {
+      "id": "guru_001",
+      "name": "Architectural Sovereign",
+      "role": "System Design & Pattern Governance",
+      "status": "active",
+      "prompt_file": ".agentic/prompts/architectural_sovereign.md",
+      "library_path": "library/guru_architect",
+      "capabilities": [
+        "pattern_matching",
+        "constraint_validation",
+        "tech_stack_optimization",
+        "future_proofing",
+        "cost_efficiency_analysis"
+      ],
+      "sub_agents": [
+        "Pattern Matcher",
+        "Constraint Validator",
+        "Tech Stack Optimizer",
+        "Future-Proofing Analyst",
+        "Cost-Efficiency Architect"
+      ]
+    },
+    {
+      "id": "guru_002",
+      "name": "Code Generation Maestro",
+      "role": "Multi-Paradigm Code Synthesis",
+      "status": "active",
+      "prompt_file": ".agentic/prompts/code_generation_maestro.md",
+      "library_path": "library/guru_code_maestro",
+      "capabilities": [
+        "syntax_transformation",
+        "algorithm_selection",
+        "boilerplate_elimination",
+        "pattern_injection",
+        "test_aware_coding"
+      ],
+      "sub_agents": [
+        "Syntax Transformer",
+        "Algorithm Selector",
+        "Boilerplate Eliminator",
+        "Pattern Injector",
+        "Test-Aware Coder"
+      ]
+    },
+    {
+      "id": "guru_003",
+      "name": "Security Sentinel",
+      "role": "Proactive Infrastructure Hardening",
+      "status": "active",
+      "prompt_file": ".agentic/prompts/security_sentinel.md",
+      "library_path": "library/guru_security_sentinel",
+      "capabilities": [
+        "vulnerability_scanning",
+        "cryptography_design",
+        "authentication_architecture",
+        "compliance_auditing",
+        "threat_modeling"
+      ],
+      "sub_agents": [
+        "Vulnerability Scanner",
+        "Cryptography Designer",
+        "Auth Architect",
+        "Compliance Auditor",
+        "Threat Modeler"
+      ]
+    },
+    {
+      "id": "guru_004",
+      "name": "DevOps Automator",
+      "role": "CI/CD & Infrastructure Management",
+      "status": "active",
+      "prompt_file": ".agentic/prompts/devops_automator.md",
+      "library_path": "library/guru_devops_automator",
+      "capabilities": [
+        "infrastructure_as_code",
+        "pipeline_architecture",
+        "container_orchestration",
+        "monitoring_strategy",
+        "security_hardening"
+      ],
+      "sub_agents": [
+        "IaC Generator",
+        "Pipeline Architect",
+        "Container Alchemist",
+        "Monitoring Strategist",
+        "Security Hardener"
+      ]
+    },
+    {
+      "id": "guru_005",
+      "name": "Project Coordinator",
+      "role": "Development Lifecycle Management",
+      "status": "active",
+      "prompt_file": ".agentic/prompts/project_coordinator.md",
+      "library_path": "library/guru_project_coordinator",
+      "capabilities": [
+        "requirement_analysis",
+        "dependency_mapping",
+        "risk_prediction",
+        "progress_visualization",
+        "retrospective_analysis"
+      ],
+      "sub_agents": [
+        "Requirement Analyzer",
+        "Dependency Mapper",
+        "Risk Predictor",
+        "Progress Visualizer",
+        "Retrospective Analyst"
+      ]
+    },
+    {
+      "id": "guru_006",
+      "name": "Reactive Frontend Engineer",
+      "role": "Dynamic UI/UX Implementation",
+      "status": "planned",
+      "prompt_file": ".agentic/prompts/reactive_frontend_engineer.md",
+      "library_path": "library/guru_frontend_engineer",
+      "capabilities": [
+        "component_composition",
+        "state_management",
+        "responsive_design",
+        "animation_choreography",
+        "accessibility_enforcement"
+      ],
+      "sub_agents": []
+    },
+    {
+      "id": "guru_007",
+      "name": "Backend Systems Engineer",
+      "role": "Scalable Server-Side Infrastructure",
+      "status": "planned",
+      "prompt_file": ".agentic/prompts/backend_systems_engineer.md",
+      "library_path": "library/guru_backend_engineer",
+      "capabilities": [
+        "api_design",
+        "middleware_composition",
+        "database_orchestration",
+        "queue_strategy",
+        "websocket_implementation"
+      ],
+      "sub_agents": []
+    },
+    {
+      "id": "guru_008",
+      "name": "Data Science Shaper",
+      "role": "ML/AI/Analytics Pipeline Creation",
+      "status": "planned",
+      "prompt_file": ".agentic/prompts/data_science_shaper.md",
+      "library_path": "library/guru_data_science",
+      "capabilities": [
+        "feature_engineering",
+        "model_selection",
+        "hyperparameter_tuning",
+        "pipeline_architecture",
+        "explainability_analysis"
+      ],
+      "sub_agents": []
+    },
+    {
+      "id": "guru_009",
+      "name": "Performance Optimizer",
+      "role": "System Efficiency Maximization",
+      "status": "planned",
+      "prompt_file": ".agentic/prompts/performance_optimizer.md",
+      "library_path": "library/guru_performance_optimizer",
+      "capabilities": [
+        "load_simulation",
+        "bottleneck_detection",
+        "cache_strategy",
+        "bundle_optimization",
+        "database_tuning"
+      ],
+      "sub_agents": []
+    },
+    {
+      "id": "guru_010",
+      "name": "Test Automation Director",
+      "role": "Comprehensive Quality Assurance",
+      "status": "planned",
+      "prompt_file": ".agentic/prompts/test_automation_director.md",
+      "library_path": "library/guru_test_automation",
+      "capabilities": [
+        "test_scenario_generation",
+        "visual_regression_detection",
+        "load_test_design",
+        "api_contract_validation",
+        "accessibility_testing"
+      ],
+      "sub_agents": []
+    },
+    {
+      "id": "guru_011",
+      "name": "Documentation Synthesizer",
+      "role": "Living Documentation System",
+      "status": "planned",
+      "prompt_file": ".agentic/prompts/documentation_synthesizer.md",
+      "library_path": "library/guru_documentation",
+      "capabilities": [
+        "code_to_docs_extraction",
+        "architecture_diagramming",
+        "tutorial_generation",
+        "changelog_curation",
+        "knowledge_graph_building"
+      ],
+      "sub_agents": []
+    },
+    {
+      "id": "guru_012",
+      "name": "UX/UI Designer Agent",
+      "role": "Human-Centered Design Implementation",
+      "status": "planned",
+      "prompt_file": ".agentic/prompts/ux_ui_designer.md",
+      "library_path": "library/guru_ux_designer",
+      "capabilities": [
+        "user_flow_mapping",
+        "design_system_generation",
+        "prototype_animation",
+        "color_science",
+        "typography_optimization"
+      ],
+      "sub_agents": []
+    }
+  ],
+  "communication_protocol": {
+    "event_bus": "GitHub Actions",
+    "message_format": "JSON-RPC 2.0",
+    "validation_layer": "Pydantic BaseModel",
+    "journaling_system": "Git Commits with YAML Headers",
+    "workflow_orchestration": "GitHub Actions + MCP"
+  },
+  "operational_status": {
+    "phase": "Phase 1 - Foundation",
+    "active_agents": 5,
+    "planned_agents": 7,
+    "total_sub_agents": 25,
+    "last_health_check": "2026-01-13T00:00:00Z"
+  }
+}

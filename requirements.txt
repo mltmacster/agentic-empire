@@ -1,0 +1,45 @@
+# Sovereign Forge Platform - Python Dependencies
+# ================================================
+
+# Core validation and type safety
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# Observability and logging
+logfire>=0.20.0
+
+# API and web frameworks
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+
+# Database and data processing
+duckdb>=0.9.0
+sqlalchemy>=2.0.25
+
+# GitHub and version control
+PyGithub>=2.1.1
+gitpython>=3.1.41
+
+# Testing and quality assurance
+pytest>=7.4.4
+pytest-asyncio>=0.23.3
+pytest-cov>=4.1.0
+black>=24.1.0
+ruff>=0.1.14
+
+# Security and cryptography
+cryptography>=42.0.0
+python-jose[cryptography]>=3.3.0
+
+# Utilities
+python-dotenv>=1.0.0
+pyyaml>=6.0.1
+toml>=0.10.2
+requests>=2.31.0
+
+# Date and time handling
+python-dateutil>=2.8.2
+
+# CLI tools
+click>=8.1.7
+rich>=13.7.0
