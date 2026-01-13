@@ -1,0 +1,188 @@
+{
+  "sub_agent_registry": {
+    "version": "1.0.0",
+    "last_updated": "2026-01-13T16:45:00Z",
+    "total_sub_agents": 10,
+    "active_sub_agents": 10,
+    "description": "Registry of specialized Sub-Agents that support the Guru Agents in executing specific, focused tasks."
+  },
+  "sub_agents": [
+    {
+      "id": "SA-001",
+      "name": "Pattern Matcher",
+      "parent_guru": "architectural_sovereign",
+      "specialization": "Design Pattern Recognition & Application",
+      "description": "Analyzes code and architecture to identify applicable design patterns (Singleton, Factory, Observer, etc.) and suggests implementations.",
+      "capabilities": [
+        "Pattern recognition in existing code",
+        "Design pattern recommendation",
+        "Anti-pattern detection",
+        "Refactoring suggestions"
+      ],
+      "status": "active",
+      "prompt_file": ".agentic/prompts/sub_agents/pattern_matcher.md"
+    },
+    {
+      "id": "SA-002",
+      "name": "Constraint Validator",
+      "parent_guru": "architectural_sovereign",
+      "specialization": "System Constraint Enforcement",
+      "description": "Ensures all architectural decisions comply with defined constraints (performance, budget, compliance, etc.).",
+      "capabilities": [
+        "Constraint validation",
+        "Performance boundary checking",
+        "Budget compliance verification",
+        "Regulatory compliance assessment"
+      ],
+      "status": "active",
+      "prompt_file": ".agentic/prompts/sub_agents/constraint_validator.md"
+    },
+    {
+      "id": "SA-003",
+      "name": "Syntax Specialist",
+      "parent_guru": "code_generation_maestro",
+      "specialization": "Multi-Language Code Generation",
+      "description": "Generates syntactically correct code in multiple programming languages (Python, JavaScript, Go, Rust, etc.).",
+      "capabilities": [
+        "Multi-language code generation",
+        "Syntax error prevention",
+        "Idiomatic code patterns",
+        "Language-specific best practices"
+      ],
+      "status": "active",
+      "prompt_file": ".agentic/prompts/sub_agents/syntax_specialist.md"
+    },
+    {
+      "id": "SA-004",
+      "name": "Refactoring Engine",
+      "parent_guru": "code_generation_maestro",
+      "specialization": "Code Optimization & Refactoring",
+      "description": "Analyzes existing code and refactors it for improved readability, performance, and maintainability.",
+      "capabilities": [
+        "Code smell detection",
+        "Refactoring suggestions",
+        "Performance optimization",
+        "Code complexity reduction"
+      ],
+      "status": "active",
+      "prompt_file": ".agentic/prompts/sub_agents/refactoring_engine.md"
+    },
+    {
+      "id": "SA-005",
+      "name": "Vulnerability Scanner",
+      "parent_guru": "security_sentinel",
+      "specialization": "Security Vulnerability Detection",
+      "description": "Scans code, dependencies, and configurations for known security vulnerabilities and provides remediation guidance.",
+      "capabilities": [
+        "CVE database scanning",
+        "Dependency vulnerability checking",
+        "Code injection detection",
+        "Security patch recommendations"
+      ],
+      "status": "active",
+      "prompt_file": ".agentic/prompts/sub_agents/vulnerability_scanner.md"
+    },
+    {
+      "id": "SA-006",
+      "name": "Compliance Auditor",
+      "parent_guru": "security_sentinel",
+      "specialization": "Regulatory Compliance Verification",
+      "description": "Ensures the system meets regulatory requirements (GDPR, HIPAA, SOC2, etc.) and generates compliance reports.",
+      "capabilities": [
+        "GDPR compliance checking",
+        "HIPAA compliance verification",
+        "SOC2 audit preparation",
+        "Compliance report generation"
+      ],
+      "status": "active",
+      "prompt_file": ".agentic/prompts/sub_agents/compliance_auditor.md"
+    },
+    {
+      "id": "SA-007",
+      "name": "Pipeline Architect",
+      "parent_guru": "devops_automator",
+      "specialization": "CI/CD Pipeline Design",
+      "description": "Designs and implements CI/CD pipelines for automated testing, building, and deployment.",
+      "capabilities": [
+        "GitHub Actions workflow creation",
+        "GitLab CI/CD configuration",
+        "Jenkins pipeline design",
+        "Deployment automation"
+      ],
+      "status": "active",
+      "prompt_file": ".agentic/prompts/sub_agents/pipeline_architect.md"
+    },
+    {
+      "id": "SA-008",
+      "name": "Infrastructure Provisioner",
+      "parent_guru": "devops_automator",
+      "specialization": "Cloud Infrastructure Management",
+      "description": "Provisions and manages cloud infrastructure using Infrastructure as Code (Terraform, CloudFormation, etc.).",
+      "capabilities": [
+        "Terraform configuration",
+        "AWS CloudFormation templates",
+        "Kubernetes manifest generation",
+        "Resource optimization"
+      ],
+      "status": "active",
+      "prompt_file": ".agentic/prompts/sub_agents/infrastructure_provisioner.md"
+    },
+    {
+      "id": "SA-009",
+      "name": "Dependency Resolver",
+      "parent_guru": "project_coordinator",
+      "specialization": "Task Dependency Management",
+      "description": "Analyzes story shards and resolves dependencies to determine optimal task execution order.",
+      "capabilities": [
+        "Dependency graph generation",
+        "Critical path analysis",
+        "Task prioritization",
+        "Blocker identification"
+      ],
+      "status": "active",
+      "prompt_file": ".agentic/prompts/sub_agents/dependency_resolver.md"
+    },
+    {
+      "id": "SA-010",
+      "name": "Progress Tracker",
+      "parent_guru": "project_coordinator",
+      "specialization": "Project Progress Monitoring",
+      "description": "Tracks the progress of story shards, generates status reports, and identifies bottlenecks.",
+      "capabilities": [
+        "Progress percentage calculation",
+        "Burndown chart generation",
+        "Bottleneck detection",
+        "Status report creation"
+      ],
+      "status": "active",
+      "prompt_file": ".agentic/prompts/sub_agents/progress_tracker.md"
+    }
+  ],
+  "planned_sub_agents": [
+    {
+      "name": "API Contract Generator",
+      "parent_guru": "backend_systems_engineer",
+      "specialization": "OpenAPI/Swagger Specification Generation"
+    },
+    {
+      "name": "Component Library Builder",
+      "parent_guru": "reactive_frontend_engineer",
+      "specialization": "Reusable UI Component Creation"
+    },
+    {
+      "name": "Model Trainer",
+      "parent_guru": "data_science_ml_engineer",
+      "specialization": "ML Model Training & Hyperparameter Tuning"
+    },
+    {
+      "name": "Test Case Generator",
+      "parent_guru": "quality_assurance_engineer",
+      "specialization": "Automated Test Case Creation"
+    },
+    {
+      "name": "API Documentation Generator",
+      "parent_guru": "documentation_technical_writer",
+      "specialization": "Automated API Documentation"
+    }
+  ]
+}
