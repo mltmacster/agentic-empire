@@ -1,0 +1,250 @@
+# Sovereign Forge Deployment Guide
+
+This guide will walk you through deploying the Sovereign Forge platform from the Phase 1 foundation to a fully operational agentic ecosystem.
+
+## Prerequisites
+
+Before you begin, ensure you have:
+
+- **GitHub Account** with repository creation permissions
+- **Git** installed locally (version 2.30+)
+- **Python 3.11+** installed
+- **GitHub CLI** (`gh`) installed and authenticated
+- **Basic understanding** of Git, Python, and CI/CD workflows
+
+## Step 1: Push to GitHub
+
+### Option A: Using GitHub CLI (Recommended)
+
+```bash
+# Navigate to the project directory
+cd /home/ubuntu/agentic-empire
+
+# Create a new GitHub repository
+gh repo create agentic-empire --public --source=. --remote=origin
+
+# Push the code
+git push -u origin main
+```
+
+### Option B: Manual Setup
+
+```bash
+# Create a new repository on GitHub via the web interface
+# Then add the remote and push
+
+git remote add origin https://github.com/YOUR_USERNAME/agentic-empire.git
+git branch -M main
+git push -u origin main
+```
+
+## Step 2: Verify GitHub Actions
+
+Once pushed, GitHub Actions will automatically activate. Verify the workflows:
+
+1. Go to your repository on GitHub
+2. Click the "Actions" tab
+3. You should see three workflows:
+   - Pydantic Validation & Security Sentinel
+   - Auto-Journaling System
+   - Code Quality & Testing
+
+**Expected Result:** The first run may show some warnings, but should not fail completely.
+
+## Step 3: Configure Repository Settings
+
+### Enable GitHub Actions Permissions
+
+1. Go to **Settings** → **Actions** → **General**
+2. Under "Workflow permissions", select:
+   - ✅ Read and write permissions
+   - ✅ Allow GitHub Actions to create and approve pull requests
+
+### Set Up Branch Protection (Optional but Recommended)
+
+1. Go to **Settings** → **Branches**
+2. Add a branch protection rule for `main`:
+   - ✅ Require status checks to pass before merging
+   - ✅ Require branches to be up to date before merging
+   - Select: Pydantic Validation, Code Quality
+
+## Step 4: Install Python Dependencies
+
+```bash
+# Create a virtual environment
+python3.11 -m venv venv
+
+# Activate the virtual environment
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+## Step 5: Validate the Installation
+
+```bash
+# Test the Pydantic schemas
+python schemas.py
+
+# Expected output:
+# ✅ Journal Entry Validated: True
+# 📝 Journal Entry: [JSON output]
+```
+
+## Step 6: Configure MCP (Model Context Protocol)
+
+The MCP configuration is already in place at `mcp_config.json`. To activate it for production:
+
+1. **For Local Development:**
+   - The file system server is enabled by default
+   - GitHub connector requires a personal access token
+
+2. **For Production:**
+   - Set up environment variables for API keys
+   - Configure database connections if needed
+   - Update `mcp_config.json` with production endpoints
+
+### Setting Up GitHub Token for MCP
+
+```bash
+# Create a GitHub personal access token
+gh auth token
+
+# Set it as an environment variable
+export GITHUB_TOKEN="your_token_here"
+
+# Or add it to .env file (never commit this!)
+echo "GITHUB_TOKEN=your_token_here" > .env
+```
+
+## Step 7: Test the Git-Loop
+
+Create a test commit to verify the auto-journaling system:
+
+```bash
+# Create a test file
+echo "# Test" > test.md
+
+# Commit it
+git add test.md
+git commit -m "test: verify auto-journaling system"
+
+# Push to GitHub
+git push
+
+# Check the Actions tab - you should see the Auto-Journaling workflow run
+# A new journal entry should be created automatically
+```
+
+## Step 8: Activate the First Guru Agent
+
+To activate your first Guru Agent (Architectural Sovereign):
+
+1. Create a story shard file:
+
+```bash
+cat > story-files/SHARD-002-ACTIVATE.md << 'EOF'
+---
+shard_id: "SHARD-002-ACTIVATE"
+title: "Activate Architectural Sovereign"
+status: "pending"
+owner_agent: "architectural_sovereign"
+priority: "high"
+---
+
+# Story Shard: Activate Architectural Sovereign
+
+## Objective
+Activate the Architectural Sovereign agent and test its pattern matching capabilities.
+
+## Acceptance Criteria
+- [ ] Agent can read and parse the conductor manifest
+- [ ] Agent can generate an ArchitecturalSpec
+- [ ] Agent creates a journal entry documenting its activation
+- [ ] All Pydantic validations pass
+
+## Next Steps
+Once activated, the agent should analyze the Choice Wride project requirements.
+EOF
+```
+
+2. Commit and push:
+
+```bash
+git add story-files/
+git commit -m "feat: create activation story shard for Architectural Sovereign"
+git push
+```
+
+## Step 9: Monitor and Observe
+
+With the foundation deployed, you can now:
+
+1. **Monitor GitHub Actions** for automated workflows
+2. **Review Journal Entries** as they are created
+3. **Track Story Shards** in `active_story_shards.json`
+4. **Analyze Artifacts** generated by agents
+
+## Step 10: Scale to Production (Future)
+
+For production deployment of the agent runtime:
+
+1. **Choose a Hosting Provider:**
+   - AWS EC2 / ECS
+   - Google Cloud Run
+   - DigitalOcean Droplets
+   - Self-hosted VPS
+
+2. **Set Up Agent Runtime:**
+   - Install Python and dependencies
+   - Configure MCP with production credentials
+   - Set up monitoring and logging
+   - Implement rate limiting for LLM API calls
+
+3. **Configure Continuous Deployment:**
+   - GitHub Actions can deploy on merge to `main`
+   - Use Docker for containerization
+   - Implement health checks and auto-restart
+
+## Troubleshooting
+
+### GitHub Actions Failing
+
+**Issue:** Workflows fail on first run  
+**Solution:** Check the Actions logs for specific errors. Common issues:
+- Missing permissions (see Step 3)
+- Python version mismatch (ensure 3.11+)
+- Missing dependencies (verify requirements.txt)
+
+### Pydantic Validation Errors
+
+**Issue:** Schema validation fails  
+**Solution:** Ensure all data conforms to the models in `schemas.py`. Use the validation utilities provided.
+
+### MCP Connection Issues
+
+**Issue:** Agents cannot access tools  
+**Solution:** Verify `mcp_config.json` and ensure all required environment variables are set.
+
+## Next Steps
+
+With Phase 1 deployed, you're ready to move to **Phase 2: Validation & Testing**. This involves:
+
+1. Testing each Guru Agent individually
+2. Validating inter-agent communication
+3. Running end-to-end workflows
+4. Optimizing agent prompts based on performance
+
+## Support
+
+For issues or questions:
+- Open a GitHub Issue
+- Check the CONTRIBUTING.md guide
+- Review the Phase 1 Completion Report
+
+---
+
+**The foundation is deployed. The agents are ready. Now let's put them to work.**
+
+*Powered by Manus.ai & D3V GURUs*
